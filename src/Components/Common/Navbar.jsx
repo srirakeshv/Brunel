@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Navbar = () => {
+  const [hover, setHover] = useState(null);
   return (
     <nav className="px-3 pt-3">
       <div
@@ -23,12 +24,22 @@ const Navbar = () => {
         </div>
         <div className="flex gap-4 items-center">
           <button
-            className="p-2 rounded-full bg-white py-3 px-5"
+            className={`p-2 rounded-full  py-3 px-5 ${
+              hover === "getprojects" ? "bg-[#F1F1F1]" : "bg-white"
+            }`}
             style={{ borderWidth: "0.1px", borderColor: "#EAEAEA" }}
+            onMouseEnter={() => setHover("getprojects")}
+            onMouseLeave={() => setHover(null)}
           >
             Get Projects
           </button>
-          <button className="p-2 rounded-full bg-black text-white py-3 px-5">
+          <button
+            className={`p-2 rounded-full  text-white py-3 px-5 ${
+              hover === "onboardtalent" ? "bg-[#4E4E4E]" : "bg-black"
+            }`}
+            onMouseEnter={() => setHover("onboardtalent")}
+            onMouseLeave={() => setHover(null)}
+          >
             Onboard Talent
           </button>
         </div>

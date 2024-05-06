@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 
 const Accordin = () => {
+  const [active, setActive] = useState(null);
   const array = [
     {
       question: "Do you offer freelancers?",
@@ -33,7 +34,7 @@ const Accordin = () => {
   return (
     <div className="p-3">
       <div
-        className="rounded-3xl p-3 flex"
+        className="rounded-3xl p-3 flex justify-between"
         style={{ backgroundColor: "#E8EEE7" }}
       >
         <div>
@@ -77,10 +78,28 @@ const Accordin = () => {
             </svg>
           </div>
         </div>
-        <div>
+        <div className="max-w-[550px] w-full mt-32 flex flex-col gap-9 mr-16">
           {array.map((ques, index) => (
-            <div key={index}>
-              <p className="text-black">{ques.question}</p>
+            <div
+              key={index}
+              className="pb-7"
+              style={{ borderBottomWidth: "0.1px", borderColor: "#D7D7D7" }}
+            >
+              <p className="text-black text-lg font-semibold flex justify-between items-center">
+                <span className="max-w-[411px] w-full">{ques.question}</span>{" "}
+                {active === index ? (
+                  <Minus
+                    className="cursor-pointer"
+                    onClick={() => setActive(null)}
+                  />
+                ) : (
+                  <Plus
+                    className="cursor-pointer"
+                    onClick={() => setActive(index)}
+                  />
+                )}
+              </p>
+              {active === index && <p className="mt-8">{ques.answer}</p>}
             </div>
           ))}
         </div>
