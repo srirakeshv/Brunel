@@ -1,9 +1,10 @@
 # Description of the folder structure and use of files
 
 There is folder called Components inside that three sections,\
-**Common,**\
-**Home,**\
-**Auth**
+
+- :blue_circle: **Common,**\
+  **Home,**\
+  **Auth**
 
 ## Common
 
