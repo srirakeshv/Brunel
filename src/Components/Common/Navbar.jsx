@@ -1,14 +1,21 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ navActive, submitted1 }) => {
   const [hover, setHover] = useState(null);
+  const navigate = useNavigate();
   return (
     <nav className="px-3 pt-3">
       <div
-        className="rounded-full  p-4 py-5 flex justify-between items-center"
-        style={{ borderWidth: "0.1px", borderColor: "#EAEAEA" }}
+        className={` ${
+          navActive ? "rounded-none" : "rounded-full"
+        }  p-4 py-5 flex justify-between items-center`}
+        style={{
+          borderWidth: navActive ? "0px" : "0.1px",
+          borderColor: navActive ? "" : "#EAEAEA",
+        }}
       >
-        <div className="pl-3">
+        <div className="pl-3 cursor-pointer" onClick={() => navigate("/")}>
           <svg
             width="121"
             height="28"
@@ -22,27 +29,79 @@ const Navbar = () => {
             />
           </svg>
         </div>
-        <div className="flex gap-4 items-center">
-          <button
-            className={`p-2 rounded-full  py-3 px-5 ${
-              hover === "getprojects" ? "bg-[#F1F1F1]" : "bg-white"
-            }`}
-            style={{ borderWidth: "0.1px", borderColor: "#EAEAEA" }}
-            onMouseEnter={() => setHover("getprojects")}
-            onMouseLeave={() => setHover(null)}
-          >
-            Get Projects
-          </button>
-          <button
-            className={`p-2 rounded-full  text-white py-3 px-5 ${
-              hover === "onboardtalent" ? "bg-[#4E4E4E]" : "bg-black"
-            }`}
-            onMouseEnter={() => setHover("onboardtalent")}
-            onMouseLeave={() => setHover(null)}
-          >
-            Onboard Talent
-          </button>
-        </div>
+        {navActive ? (
+          <div>
+            {submitted1 === false && (
+              <svg
+                width="56"
+                height="56"
+                viewBox="0 0 64 64"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="cursor-pointer"
+                onClick={() => navigate("/")}
+              >
+                <rect
+                  x="0.5"
+                  y="0.5"
+                  width="63"
+                  height="63"
+                  rx="31.5"
+                  stroke="#CACACA"
+                />
+                <g clip-path="url(#clip0_11_215)">
+                  <path
+                    d="M40 24L24 40"
+                    stroke="#0C1319"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M24 24L40 40"
+                    stroke="#0C1319"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_11_215">
+                    <rect
+                      width="32"
+                      height="32"
+                      fill="white"
+                      transform="translate(16 16)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+            )}
+          </div>
+        ) : (
+          <div className="flex gap-4 items-center">
+            <button
+              className={`p-2 rounded-full  py-3 px-5 ${
+                hover === "getprojects" ? "bg-[#F1F1F1]" : "bg-white"
+              }`}
+              style={{ borderWidth: "0.1px", borderColor: "#EAEAEA" }}
+              onMouseEnter={() => setHover("getprojects")}
+              onMouseLeave={() => setHover(null)}
+              onClick={() => navigate("/registration")}
+            >
+              Get Projects
+            </button>
+            <button
+              className={`p-2 rounded-full  text-white py-3 px-5 ${
+                hover === "onboardtalent" ? "bg-[#4E4E4E]" : "bg-black"
+              }`}
+              onMouseEnter={() => setHover("onboardtalent")}
+              onMouseLeave={() => setHover(null)}
+            >
+              Onboard Talent
+            </button>
+          </div>
+        )}
       </div>
     </nav>
   );

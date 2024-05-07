@@ -113,7 +113,7 @@ const Banner = () => {
             >
               Enhance fortune 50 company’s insights teams research capabilities
             </p>
-            <div className="mt-10 flex gap-3 items-center">
+            <div className="mt-10 ml-2 flex gap-3 items-center">
               <div
                 className="w-2 h-2 rounded-full"
                 style={{ backgroundColor: "#2DA950" }}
