@@ -2,9 +2,9 @@
 
 There is folder called Components inside that three sections,\
 
-- :blue_circle: **Common,**\
-  **Home,**\
-  **Auth**
+🟢**Common,**\
+🟢**Home,**\
+🟢**Auth**
 
 ## Common
 
