@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Accordin = () => {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState(null); //updating the accordin show and hide
   const array = [
     {
       question: "Do you offer freelancers?",
@@ -99,7 +100,26 @@ const Accordin = () => {
                   />
                 )}
               </p>
-              {active === index && <p className="mt-8">{ques.answer}</p>}
+              <AnimatePresence>
+                {active === index && (
+                  <motion.p
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    transition={{ duration: 0.2 }}
+                    exit={{
+                      opacity: 0,
+                      height: 0,
+                      transition: {
+                        ease: "easeInOut",
+                        delay: 0.1,
+                      },
+                    }}
+                    className="mt-8"
+                  >
+                    {ques.answer}
+                  </motion.p>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>

@@ -41,7 +41,7 @@ const Banner = () => {
                 Reduced client expenses by saving on hiring and employee costs.
               </p>
             </div>
-            <div className="absolute bottom-10 left-20 flex gap-4 rounded-full p-3 px-4 bg-white shadow-sm shadow-slate-200">
+            <div className="absolute bottom-10 left-20 flex gap-4 rounded-full p-3 px-4 bg-white shadow-sm shadow-slate-300">
               <svg
                 width="53"
                 height="53"
@@ -68,7 +68,7 @@ const Banner = () => {
                 </p>
               </div>
             </div>
-            <div className="box-content absolute top-20 left-3 w-44 p-3 px-5 rounded-2xl bg-white shadow-sm shadow-slate-200">
+            <div className="box-content absolute top-20 left-3 w-44 p-3 px-5 rounded-2xl bg-white shadow-md shadow-slate-300">
               <svg
                 width="80"
                 height="80"
@@ -118,16 +118,10 @@ const Banner = () => {
                 className="w-2 h-2 rounded-full"
                 style={{ backgroundColor: "#2DA950" }}
               ></div>
-              <div
-                className="w-2 h-2 rounded-full"
-                style={{ backgroundColor: "#E4E3E3" }}
-              ></div>
-              <div
-                className="w-2 h-2 rounded-full"
-                style={{ backgroundColor: "#E4E3E3" }}
-              ></div>
+              <div className="w-2 h-2 rounded-full bg-[#E4E3E3] hover:bg-[#CAD0CB]"></div>
+              <div className="w-2 h-2 rounded-full bg-[#E4E3E3] hover:bg-[#CAD0CB]"></div>
             </div>
-            <button className="mt-auto w-fit p-2 rounded-full bg-black text-white py-4 px-5 flex items-center gap-4">
+            <button className="mt-auto w-fit p-2 rounded-full bg-black hover:bg-[#4E4E4E] text-white py-4 px-5 flex items-center gap-4">
               Explore More{" "}
               <svg
                 width="24"

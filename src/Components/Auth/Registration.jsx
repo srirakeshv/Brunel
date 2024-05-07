@@ -6,13 +6,14 @@ const Registration = ({ setSubmitted1 }) => {
   const [inputData, setInputData] = useState({
     candidatename: "",
     email: "",
-  });
-  const [buttonActive, setButtonActive] = useState(false);
-  const [emailError, setEmailError] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  }); //updating the data get using input fields
+  const [buttonActive, setButtonActive] = useState(false); //setting disabled button as absent and enable submit button
+  const [emailError, setEmailError] = useState(""); //setting error status
+  const [submitted, setSubmitted] = useState(false); //if submmited without error display congratulations
   const [countdown, setCountdown] = useState(5); // Countdown timer
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //navigating to another page
 
+  //handling onchange events
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInputData((prev) => ({
@@ -21,9 +22,11 @@ const Registration = ({ setSubmitted1 }) => {
     }));
   };
 
+  //handling submit event
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    //checking for input field not empty to enable submit button
     if (inputData.candidatename !== "" && inputData.email !== "") {
       setButtonActive(true);
     } else {
@@ -48,11 +51,12 @@ const Registration = ({ setSubmitted1 }) => {
         email: "",
         phonenumber: "",
       });
-      setSubmitted(true);
-      setSubmitted1(true);
+      setSubmitted(true); //this set the congratualtions true
+      setSubmitted1(true); //this sets the navbar x mark icon display- hidden
     }
   };
 
+  //for tracing the input field
   useEffect(() => {
     if (inputData.candidatename !== "" && inputData.email !== "") {
       setButtonActive(true);
@@ -61,6 +65,7 @@ const Registration = ({ setSubmitted1 }) => {
     }
   }, [inputData.candidatename, inputData.email]);
 
+  //for tracing the countdown for automatic redirection to homepage
   useEffect(() => {
     if (submitted) {
       const timer = setInterval(() => {
@@ -85,6 +90,7 @@ const Registration = ({ setSubmitted1 }) => {
       style={{ minHeight: "82vh" }}
     >
       {submitted === true ? (
+        //congratualtions
         <div
           className="mt-10 flex flex-col items-center justify-between"
           style={{ minHeight: "70vh" }}
@@ -127,6 +133,7 @@ const Registration = ({ setSubmitted1 }) => {
           </div>
         </div>
       ) : (
+        //form display
         <div className="flex flex-col items-center">
           <div className="flex flex-col items-center gap-4">
             <p className="text-[#2DA950] text-4xl font-coverbyyourgrace">
@@ -157,33 +164,42 @@ const Registration = ({ setSubmitted1 }) => {
                 name="email"
                 value={inputData.email}
                 placeholder="Enter your email"
-                className="bg-[#EFEFEF] px-7 py-4 rounded-full w-[350px] outline-none"
+                className={` ${
+                  emailError !== "" ? "bg-[#F5F8FF]" : "bg-[#EFEFEF]"
+                } px-7 py-4 rounded-full w-[350px] outline-none`}
+                style={{
+                  borderWidth: emailError !== "" ? "0.1px" : "0px",
+                  borderColor: "#537FF1",
+                }}
                 onChange={(e) => handleChange(e)}
               />
-              {emailError !== "" && (
-                <p className="mt-2 flex items-center gap-2 text-sm font-medium text-[#FF0808]">
-                  <svg
-                    width="21"
-                    height="20"
-                    viewBox="0 0 21 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect
-                      x="8.89941"
-                      y="6.00024"
-                      width="3.2"
-                      height="8"
-                      fill="white"
-                    />
-                    <path
-                      d="M10.5016 16.6666C6.81973 16.6666 3.83496 13.6818 3.83496 9.99992C3.83496 6.31802 6.81973 3.33325 10.5016 3.33325C14.1835 3.33325 17.1683 6.31802 17.1683 9.99992C17.1683 13.6818 14.1835 16.6666 10.5016 16.6666ZM9.83496 11.9999V13.3332H11.1683V11.9999H9.83496ZM9.83496 6.66658V10.6666H11.1683V6.66658H9.83496Z"
-                      fill="#FF0808"
-                    />
-                  </svg>
-                  {emailError}
-                </p>
-              )}
+
+              <div className="mt-2 text-sm h-3 font-medium text-[#FF0808]">
+                {emailError !== "" && (
+                  <p className="flex items-center gap-2">
+                    <svg
+                      width="21"
+                      height="20"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="8.89941"
+                        y="6.00024"
+                        width="3.2"
+                        height="8"
+                        fill="white"
+                      />
+                      <path
+                        d="M10.5016 16.6666C6.81973 16.6666 3.83496 13.6818 3.83496 9.99992C3.83496 6.31802 6.81973 3.33325 10.5016 3.33325C14.1835 3.33325 17.1683 6.31802 17.1683 9.99992C17.1683 13.6818 14.1835 16.6666 10.5016 16.6666ZM9.83496 11.9999V13.3332H11.1683V11.9999H9.83496ZM9.83496 6.66658V10.6666H11.1683V6.66658H9.83496Z"
+                        fill="#FF0808"
+                      />
+                    </svg>
+                    <span>{emailError}</span>
+                  </p>
+                )}
+              </div>
             </div>
             <div className="mt-5 flex flex-col gap-3">
               {buttonActive ? (

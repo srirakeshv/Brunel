@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ navActive, submitted1 }) => {
-  const [hover, setHover] = useState(null);
-  const navigate = useNavigate();
+  const [hover, setHover] = useState(null); //hover status updation
+  const navigate = useNavigate(); //to navigate to that page
+
+  /*  */
+
   return (
     <nav className="px-3 pt-3">
       <div
