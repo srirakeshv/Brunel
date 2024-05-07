@@ -2,9 +2,9 @@
 
 There is folder called Components inside that three sections,\
 
-🟢**Common,**\
-🟢**Home,**\
-🟢**Auth**
+➡️**Common,**\
+➡️**Home,**\
+➡️**Auth**
 
 ## Common
 
@@ -25,7 +25,7 @@ Inside `Homepage` and `Registrationpage` folder their resapective page component
 
 ## General Info
 
-Use of react router dom for redirecting to another is used.\
-Use of hooks for updating the contents are done.
+🔹Use of react router dom for redirecting to another is used.\
+🔹Use of hooks for updating the contents are done.
 
 **Note: Framer motion is used for animating the accordin**
