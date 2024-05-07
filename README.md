@@ -1,9 +1,9 @@
 # Description of the folder structure and use of files
 
 There is folder called Components inside that three sections,\
-Common,\
-Home,\
-Auth,\
+**Common,**\
+**Home,**\
+**Auth**
 
 ## Common
 
@@ -19,8 +19,8 @@ In this, `Authentication` the registration component is there for getting inputs
 
 # Page folder
 
-In this two folder are there, Homepage and RegistrationPage.\
-Inside Homepage and Registrationpage folder their resapective page components are there.
+In this two folder are there, `Homepage` and `RegistrationPage`.\
+Inside `Homepage` and `Registrationpage` folder their resapective page components are there.
 
 ## General Info
 
